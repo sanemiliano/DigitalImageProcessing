@@ -1,0 +1,9 @@
+function result = myfreqnoise(f)
+[M ,N,O]=size(f);
+C=[0 50 ;100 100;50 0];
+[n, R, S] = imnoise3(M, N, C);
+n2=autoadj(n);
+f(:,:,1)=f(:,:,1)+n2;
+f(:,:,2)=f(:,:,2)+n2;
+f(:,:,3)=f(:,:,3)+n2;
+result = f;
